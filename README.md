@@ -138,6 +138,7 @@ return order.has_items and order.payment == "OK" and not order.cancelled_in_5min
 
 ## Связаться со мной можно через:  
 [Telegram](https://t.me/alexws_com)
+Email: 6881172@gmail.com
 
 
 ## 📜 **Лицензия**
