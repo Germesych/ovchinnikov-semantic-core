@@ -7,7 +7,7 @@
 
 ## 📂 **Структура репозитория**
 - `/core.md` — [Ядро сжатия и примеры](https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/core.md).
-- `/how_it_works.md` — [Более подробное объяснение](https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/core.md).
+- `/how_it_works.md` — [Более подробное объяснение](https://github.com/Germesych/ovchinnikov-semantic-core/how_it_works.md).
 
 
 ## 🎯 **Зачем это нужно?**
