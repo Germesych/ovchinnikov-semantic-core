@@ -6,8 +6,8 @@
 Это **НЕ суммаризация**, НЕ сжатие текста и НЕ парафраз. Это **оптимизация структуры смысла** специально для машинного восприятия.
 
 ## 📂 **Структура репозитория**
-- `/core.md` — (Ядро сжатия и примеры)[https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/core.md].
-- `/how_it_works.md` — Более подробное объяснение.
+- `/core.md` — [Ядро сжатия и примеры](https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/core.md).
+- `/how_it_works.md` — [Более подробное объяснение](https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/core.md).
 
 
 ## 🎯 **Зачем это нужно?**
