@@ -8,7 +8,7 @@ This is **NOT summarization**, **NOT text compression**, and **NOT paraphrasing*
 
 
 ## 📂 **Repository Structure**
-- `/core.md` — [Compression Core and Examples](https://github.com/Germesych/ovchinnikov-semantic-core/EN_CORE.md).
+- `/core.md` — [Compression Core and Examples](https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/EN_CORE.md).
 - `/how_it_works.md` — [Detailed Explanation](https://github.com/Germesych/ovchinnikov-semantic-core/EN_how_it_works.md).
 
 
