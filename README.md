@@ -1,4 +1,5 @@
 # 🚀 Ovchinnikov Effect: Semantic Logic Compression for LLM
+(EN Leng)[https://github.com/Germesych/ovchinnikov-semantic-core/blob/main/EN_README.md]
 
 ( Название такое по просьбе людей с моего канала в телеграм - [Code & Coffee by Александр Овчинников](https://t.me/Code_Coffee_AO) )
 
