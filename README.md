@@ -137,7 +137,8 @@ return order.has_items and order.payment == "OK" and not order.cancelled_in_5min
 - `/docs` — Документация и объяснения.
 - `/experiments` — Результаты тестов (25K → 327 токенов, 100% синтаксическая точность).
 
-## [Связаться со мной можно через Telegram](https://t.me/alexws_com)
+## Связаться со мной можно через:  
+[Telegram](https://t.me/alexws_com)
 
 
 ## 📜 **Лицензия**
