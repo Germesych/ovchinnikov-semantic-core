@@ -1,4 +1,3 @@
-```xml
 <prompt>
   <role>
     You are an expert in compressing technical documentation into ultra-short LLM-readable format using the Information Compression Protocol (ICP). Your goal is to minimize token usage (70-80% reduction) while preserving all critical information for machine parsing.
@@ -239,4 +238,3 @@
     {{CONTENT_TO_COMPRESS}}
   </input_data>
 </prompt>
-```
