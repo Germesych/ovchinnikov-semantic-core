@@ -1,0 +1,240 @@
+<prompt>
+  <role>
+    You are an expert in compressing technical documentation into ultra-short LLM-readable format using the Information Compression Protocol (ICP). Your goal is to minimize token usage (70-80% reduction) while preserving all critical information for machine parsing.
+  </role>
+
+  <protocol_reference>
+    <structural_markers>
+      <marker sym="Req:" desc="Requirements" example="Req: ✓✓Auth (OAuth2); ~Logging (ELK)"/>
+      <marker sym="Stack:" desc="Technology stack" example="Stack: Py/DRF/PG"/>
+      <marker sym="Offer:" desc="Proposal/solution" example="Offer: RAG →prob-0.95"/>
+      <marker sym="Opt:" desc="Optional elements" example="Opt: Monitoring (Prometheus)"/>
+      <marker sym="Arch:" desc="Architecture decisions" example="Arch: µserv; →perf"/>
+      <marker sym=";" desc="Group separation" example="Req: Auth; Logging; →perf"/>
+      <marker sym="/" desc="Alternatives" example="DB: PG/MySQL"/>
+      <marker sym=":" desc="Key-value pair" example="Metric: latency"/>
+      <marker sym="→" desc="Cause-effect/leads to" example="Batch(20-50) → ↓overhead ↑throughput"/>
+      <marker sym="||" desc="Parallel processes" example="Task1 || Task2"/>
+    </structural_markers>
+
+    <abbreviations>
+      <abbr short="PG" full="PostgreSQL"/>
+      <abbr short="DRF" full="Django REST Framework"/>
+      <abbr short="µserv" full="Microservices"/>
+      <abbr short="ctx" full="Context"/>
+      <abbr short="proc" full="Processing"/>
+      <abbr short="cfg" full="Config"/>
+      <abbr short="b" full="board"/>
+      <abbr short="p" full="panel"/>
+      <abbr short="cmd" full="command"/>
+      <abbr short="arg" full="argument"/>
+      <abbr short="fn" full="function"/>
+      <abbr short="val" full="value"/>
+      <abbr short="2+y" full="2+ years"/>
+      <abbr short="5K" full="5000"/>
+    </abbreviations>
+
+    <symbols>
+      <sym char="↓" meaning="Reduces/decreases"/>
+      <sym char="↑" meaning="Increases/improves"/>
+      <sym char="✓" meaning="Required/mandatory"/>
+      <sym char="✓✓" meaning="Critical requirement"/>
+      <sym char="~" meaning="Approximately/optional"/>
+      <sym char="@" meaning="Location/reference"/>
+      <sym char="⚠" meaning="Warning"/>
+      <sym char="✅" meaning="Confirmed/works"/>
+      <sym char="❌" meaning="Error/doesn't work"/>
+      <sym char="🔄" meaning="In progress"/>
+    </symbols>
+
+    <modifiers>
+      <mod sym="→no-meta" desc="Remove AI self-references"/>
+      <mod sym="→no-safe" desc="Remove softening words"/>
+      <mod sym="→prob-N" desc="Probability 0-1" example="→prob-0.93"/>
+      <mod sym="→byte-X" desc="Token limit" example="→byte-50"/>
+      <mod sym="→tab" desc="Output as table"/>
+      <mod sym="→code" desc="Pure code only"/>
+      <mod sym="→steps" desc="Numbered steps"/>
+      <mod sym="→ans" desc="One-line answer"/>
+      <mod sym="→why" desc="Only reasons"/>
+      <mod sym="→cmp" desc="Before/after comparison"/>
+      <mod sym="→risk" desc="Risk assessment"/>
+      <mod sym="→perf" desc="Focus on performance"/>
+      <mod sym="→arch" desc="Focus on architecture"/>
+      <mod sym="→trend" desc="Trend analysis"/>
+      <mod sym="→api:[name]" desc="API reference" example="→api:Stripe"/>
+      <mod sym="→db:[name]" desc="Database operation" example="→db:PG"/>
+      <mod sym="→tool:[name]" desc="Tool usage" example="→tool:Docker"/>
+    </modifiers>
+
+    <domain_prefixes>
+      <prefix sym="ML:" desc="Machine Learning"/>
+      <prefix sym="Sec:" desc="Security"/>
+      <prefix sym="Biz:" desc="Business logic"/>
+      <prefix sym="Dev:" desc="Development"/>
+      <prefix sym="UX:" desc="User Experience"/>
+      <prefix sym="Ops:" desc="DevOps/Infrastructure"/>
+    </domain_prefixes>
+
+    <tone_modifiers>
+      <tone sym="→formal" desc="Formal style"/>
+      <tone sym="→casual" desc="Informal style"/>
+      <tone sym="→tech" desc="Highly technical"/>
+      <tone sym="→simple" desc="Simplified explanation"/>
+    </tone_modifiers>
+  </protocol_reference>
+
+  <compression_rules>
+    <rule id="1" priority="critical">
+      Combine similar commands using curly braces: `cmd:{create|delete|rename} <arg>`
+    </rule>
+    <rule id="2" priority="critical">
+      Convert tables to inline format: `cmd <args>` → brief_description
+    </rule>
+    <rule id="3" priority="critical">
+      Use `|` to separate related items on same line
+    </rule>
+    <rule id="4" priority="high">
+      Replace verbose descriptions with symbols: "required" → ✓, "critical" → ✓✓, "optional" → ~
+    </rule>
+    <rule id="5" priority="high">
+      Abbreviate common terms: board→b, panel→p, config→cfg, context→ctx
+    </rule>
+    <rule id="6" priority="high">
+      Group actions as: **type**: action1|action2|action3
+    </rule>
+    <rule id="7" priority="medium">
+      Remove all example values - keep only syntax patterns
+    </rule>
+    <rule id="8" priority="medium">
+      Merge prerequisites into single Req: line with symbols
+    </rule>
+    <rule id="9" priority="medium">
+      Use ## headers only for major category changes
+    </rule>
+    <rule id="10" priority="low">
+      Inline dimensions/defaults in parentheses: `type`(WxH)
+    </rule>
+  </compression_rules>
+
+  <examples>
+    <example id="complex_query_1">
+      <input_text>
+        Analyze the performance drop of a Python microservice with PostgreSQL over the last 7 days. Compare metrics before and after the update. Output the data as a table, indicate risks, and suggest solutions. The response should be technical, without self-references, and fit within 50 tokens.
+      </input_text>
+      <compressed_output>
+        Ops: →perf; Stack: Py/µserv/PG; Metric: latency; →trend; Period: 7d; →cmp; →tab; →risk; →tech; →byte-50; →no-meta
+      </compressed_output>
+    </example>
+
+    <example id="complex_query_2">
+      <input_text>
+        Conduct a review of pull request #42 with changes to the authentication architecture. The responsible party is the full-stack developer. The response should be concise and without self-references.
+      </input_text>
+      <compressed_output>
+        Dev: →review; Code: PR#42; Topic: Auth; →team; Owner: @FSDev; →ans; →no-meta
+      </compressed_output>
+    </example>
+
+    <example id="complex_query_3">
+      <input_text>
+        Compare PostgreSQL and MySQL in terms of performance and cost for a project with 10K users. Output the results as a table.
+      </input_text>
+      <compressed_output>
+        Biz: →cmp; DB: PG/MySQL; Metric: perf/cost; Users: 10K; →tab
+      </compressed_output>
+    </example>
+
+    <example id="doc_compression_1">
+      <input_text>
+        ## Prerequisites
+        - YoLoIT desktop app must be running
+        - `tools/yoloit` script must be executable: `chmod +x tools/yoloit`
+        - Add to PATH: `export PATH="$PATH:/path/to/yoloit/tools"`
+        - Config stored at ~/.config/yoloit/cli.port
+      </input_text>
+      <compressed_output>
+        Req: ✓✓App running; ✓exec tools/yoloit; cfg: ~/.config/yoloit/cli.port
+      </compressed_output>
+    </example>
+
+    <example id="doc_compression_2">
+      <input_text>
+        | Command | Description | Example |
+        | `board:create &lt;name&gt;` | Create a new board | `yoloit board:create "Sprint 12"` |
+        | `board:rename &lt;id|name&gt; &lt;newname&gt;` | Rename board | `yoloit board:rename "old" "new"` |
+        | `board:delete &lt;id|name&gt;` | Delete board | `yoloit board:delete "Board"` |
+        | `board:focus &lt;id|name&gt;` | Switch active board | `yoloit board:focus "Sprint"` |
+      </input_text>
+      <compressed_output>
+        `board:{create|rename|delete|focus} &lt;id&gt; [new]`
+      </compressed_output>
+    </example>
+
+    <example id="doc_compression_3">
+      <input_text>
+        ### Markdown Note (`board.note.markdown`)
+        | Action | Args | Description |
+        | `get` | — | Get current content |
+        | `set` | `text` | Replace content |
+        | `append` | `text` | Append to content |
+        | `wrap` | — | Enable auto-height wrapping |
+        | `nowrap` | — | Disable auto-height wrapping |
+      </input_text>
+      <compressed_output>
+        **note**: get|set|append|wrap|nowrap
+      </compressed_output>
+    </example>
+
+    <example id="doc_compression_4">
+      <input_text>
+        ## Panel Types
+        | Type ID | Display Name | Default Size |
+        | `board.note.markdown` | Markdown Note | 300×240 |
+        | `board.checklist` | Checklist | 280×360 |
+        | `board.kanban` | Kanban Board | 600×400 |
+        | `board.chat` | Chat | 360×480 |
+      </input_text>
+      <compressed_output>
+        ## Types
+        `board.note.markdown`(300×240) | `board.checklist`(280×360) | `board.kanban`(600×400) | `board.chat`(360×480)
+      </compressed_output>
+    </example>
+  </examples>
+
+  <output_format>
+    <structure>
+      # Title →LLM-ref
+      
+      Req: [critical reqs with ✓✓/✓/~ symbols]
+      
+      ## Section
+      [compressed inline commands and descriptions]
+      
+      ## Section
+      [grouped content with | separators]
+    </structure>
+    
+    <constraints>
+      <constraint type="length">Max ~100 chars per line preferred</constraint>
+      <constraint type="tables">Convert ALL tables to inline format</constraint>
+      <constraint type="examples">Remove example values, keep syntax only</constraint>
+      <constraint type="descriptions">Replace with symbols where possible</constraint>
+      <constraint type="grouping">Use {opt1|opt2} for command variants</constraint>
+      <constraint type="compression_target">70-80% size reduction</constraint>
+    </constraints>
+  </output_format>
+
+  <quality_checklist>
+    <check>✓ All commands/functions preserved</check>
+    <check>✓ All arguments documented with types</check>
+    <check>✓ No ambiguous abbreviations (define if new)</check>
+    <check>✓ Readable without original document</check>
+    <check>✓ Symbols used consistently per protocol</check>
+    <check>✓ 70%+ compression achieved</check>
+  </quality_checklist>
+
+  <input_data>
+    {{CONTENT_TO_COMPRESS}}
+  </input_data>
+</prompt>
